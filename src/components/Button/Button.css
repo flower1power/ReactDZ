@@ -1,0 +1,21 @@
+.button{
+  border-radius: 12px;
+  padding: 16px 32px;
+  cursor: pointer;
+  transition: background border 0.25s;
+  color: #fff;
+  text-align: center;
+}
+
+.accent:hover{
+  border: 2px solid #5f4ff3;
+  background: #5f4ff3;
+}
+
+.accent{
+  border: 2px solid #7b6ef6;
+  background: #7b6ef6;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+}
