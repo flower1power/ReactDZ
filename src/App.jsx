@@ -1,18 +1,12 @@
 import './App.css';
-import Button from './components/button/button';
-import Title from './components/Title/Title';
-import Text from './components/Text/Text';
+import Header from './components/Header/Header';
+import SearchSection from './components/SearchSection/SearchSection';
 
 function App() {
   return (
     <>
-      <Title text={'Поиск'} />
-      <Text
-        text={
-          'Введите название фильма, сериала или мультфильма для поиска и добавления в избранное.'
-        }
-      ></Text>
-      <Button text={'Искать'} />
+      <Header></Header>
+      <SearchSection></SearchSection>
     </>
   );
 }

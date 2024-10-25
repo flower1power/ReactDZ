@@ -1,0 +1,11 @@
+.section-title{
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+@media (max-width: 985px) {
+  .section-title{
+    min-width: 355px;
+  }
+}

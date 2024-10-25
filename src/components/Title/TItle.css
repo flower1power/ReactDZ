@@ -1,8 +1,16 @@
 h1{
-  font-weight: 600;
+  font-family: Poppins, sans-serif;
   font-size: 64px;
+  font-style: normal;
+  font-weight: 600;
   line-height: 80px;
-  letter-spacing: -0.02em;
   color: #ebeef5;
+  letter-spacing: -1.28px;
   margin: 0;
+}
+
+@media (max-width: 1045px) {
+  h1{
+    font-size: 62px;
+  }
 }

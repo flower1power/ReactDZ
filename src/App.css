@@ -1,6 +1,16 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+  padding: 0 120px;
 }
 
+
+@media (max-width: 985px) {
+  #root{
+    padding: 0 80px;
+  }
+}
+
+@media (max-width: 825px) {
+  #root{
+    padding: 0 40px;
+  }
+  }
