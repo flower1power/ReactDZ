@@ -1,7 +1,12 @@
 import './Button.css';
 
-function Button({ text }) {
-  return <button className={'button'}>{text}</button>;
+function Button({ text, className, children }) {
+  return (
+    <button className={`button ${className ? className : null}`}>
+      {children}
+      {text}
+    </button>
+  );
 }
 
 export default Button;

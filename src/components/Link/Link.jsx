@@ -1,8 +1,8 @@
 import './Link.css';
 
-function Link({ text, children, isActive }) {
+function Link({ text, children, className }) {
   return (
-    <a className={`link ${isActive ? 'active' : ''}`} href="#">
+    <a className={`link ${className ? className : ''}`} href="#">
       {text}
       {children}
     </a>

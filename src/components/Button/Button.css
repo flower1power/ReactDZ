@@ -10,9 +10,29 @@
   text-align: center;
   font-family: Poppins, sans-serif;
   font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
+  font-weight: 400px;
   line-height: 24px; 
+}
+
+.card-button{
+  display: flex;
+  gap: 8px;
+  cursor: pointer;
+  background: transparent;
+  transition: background border 0.25s;
+  border: none;
+
+  color: #7B6EF6;
+  font-size: 16px;
+  font-weight: 600px;
+  line-height: 24px;
+  letter-spacing: 0.32px; 
+  padding: 0;
+}
+
+.card-button:hover{
+  border: 2px solid #5f4ff3;
+  background: #5f4ff3;
 }
 
 .accent:hover{
@@ -23,7 +43,20 @@
 @media (max-width: 985px) {
   .button{
     padding: 14px 30px;
-  font-size: 14px;
+    font-size: 14px;
+  }
+}
 
+@media (max-width: 435px) {
+  .button{
+    padding: 12px 28px;
+    font-size: 12px;
   }
+}
+
+@media (max-width: 385px) {
+  .button{
+    padding: 10px 26px;
+    font-size: 10px;
   }
+}

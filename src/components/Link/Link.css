@@ -7,8 +7,7 @@
   gap:8px;
   align-items: center;
   font-size: 16px;
-  font-style: normal;
-  font-weight: 600;
+  font-weight: 600px;
   line-height: 24px;
   letter-spacing: 0.32px;
 }
@@ -24,14 +23,12 @@
 @media (max-width: 985px) {
   .link {
     padding: 10px 14px;
-  font-size: 14px;
-
-    }
+    font-size: 14px;
   }
+}
 
-  @media (max-width: 825px) {
-    .link {
-      padding: 8px 12px;
-
-      }
-    }
+@media (max-width: 825px) {
+  .link {
+    padding: 8px 12px;
+  }
+}

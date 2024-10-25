@@ -9,3 +9,9 @@
     min-width: 355px;
   }
 }
+
+@media (max-width: 392px) {
+  .section-title{
+    min-width: fit-content;
+  }
+}

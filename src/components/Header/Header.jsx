@@ -6,7 +6,7 @@ function Header() {
     <div className="header">
       <img src="/src/public/logo.svg" alt="logo" className="logo"></img>
       <nav className="nav">
-        <Link isActive={true} text={'Поиск фильмов'}></Link>
+        <Link className={'active'} text={'Поиск фильмов'}></Link>
         <Link text={'Мои фильмы'}></Link>
         <Link text={'Войти'}>
           <img
