@@ -1,0 +1,6 @@
+.search-form{
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  max-width: 510px;
+}

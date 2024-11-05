@@ -1,0 +1,12 @@
+.search-section{
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 50%;
+}
+
+@media (max-width: 436px) {
+  .search-section {
+    width: 100%
+  }
+}

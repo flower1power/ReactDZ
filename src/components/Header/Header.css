@@ -1,0 +1,32 @@
+.logo{
+  width: 40px;
+  height: 40px;
+}
+.out{
+  width: 24px;
+  height: 24px;
+}
+
+.header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 0;
+}
+
+.nav{
+  display: flex;
+  gap: 16px;
+}
+
+@media (max-width: 985px) {
+.nav {
+      gap:12px
+  }
+}
+
+@media (max-width: 824px) {
+  .nav {
+    gap:10px
+  }
+}
