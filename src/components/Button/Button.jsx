@@ -1,12 +1,7 @@
-import './Button.css';
+import style from './Button.module.css';
 
-function Button({ text, className, children }) {
-  return (
-    <button className={`button ${className ? className : null}`}>
-      {children}
-      {text}
-    </button>
-  );
+function Button({ text }) {
+  return <button className={style['button']}>{text}</button>;
 }
 
 export default Button;

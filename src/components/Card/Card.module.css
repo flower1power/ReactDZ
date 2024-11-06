@@ -12,10 +12,6 @@
   overflow: hidden;
 }
 
-.card-link{
-  color: #EBEEF5;
-  padding: 0;
-}
 
 .card-img{
   display: flex;
@@ -37,6 +33,7 @@
   align-items: flex-start;
   gap: 16px;
 }
+
 
 @media (max-width: 1085px) {
   .card {

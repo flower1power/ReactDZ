@@ -1,16 +1,17 @@
-import './Input.css';
+import { imagePaths } from '../../utils/imagePath. constant';
+import style from './Input.module.css';
 
 function Input({ isSearch, placeholder }) {
   return (
-    <div className="input-container">
-      {isSearch ? (
+    <div className={style['input-container']}>
+      {isSearch && (
         <img
-          src="/src/public/search2.svg"
+          src={imagePaths.search}
           alt="Картинка поиска"
-          className="input-icon"
+          className={style['input-icon']}
         />
-      ) : null}
-      <input className="input" placeholder={placeholder} />
+      )}
+      <input className={style['input']} placeholder={placeholder} />
     </div>
   );
 }

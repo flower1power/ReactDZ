@@ -1,4 +1,4 @@
-import './Text.css';
+import './Text.module.css';
 
 function Text({ text }) {
   return <p>{text}</p>;

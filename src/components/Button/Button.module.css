@@ -9,36 +9,17 @@
   color: #fff;
   text-align: center;
   font-family: Poppins, sans-serif;
+  font-style: normal;
   font-size: 16px;
   font-weight: 400px;
   line-height: 24px; 
 }
 
-.card-button{
-  display: flex;
-  gap: 8px;
-  cursor: pointer;
-  background: transparent;
-  transition: background border 0.25s;
-  border: none;
-
-  color: #7B6EF6;
-  font-size: 16px;
-  font-weight: 600px;
-  line-height: 24px;
-  letter-spacing: 0.32px; 
-  padding: 0;
-}
-
-.card-button:hover{
+.button:hover{
   border: 2px solid #5f4ff3;
   background: #5f4ff3;
 }
 
-.accent:hover{
-  border: 2px solid #5f4ff3;
-  background: #5f4ff3;
-}
 
 @media (max-width: 985px) {
   .button{
