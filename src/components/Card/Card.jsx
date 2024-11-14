@@ -2,7 +2,7 @@ import style from './Card.module.css';
 import Link from '../Link/Link';
 import Rang from '../Rang/Rang';
 import CardButton from '../CardButton/CardButton';
-import { imagePaths } from '../../utils/imagePath. constant';
+import { imagePaths } from '../../utils/imagePath.constant';
 
 function Card({ imgPath, name, rang }) {
   return (

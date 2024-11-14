@@ -4,4 +4,5 @@ export const imagePaths = {
   outh: '/public/out.svg',
   search: '/public/search.svg',
   star: '/public/star.svg',
+  user: '/public/User.svg',
 };

@@ -1,4 +1,4 @@
-import { imagePaths } from '../../utils/imagePath. constant';
+import { imagePaths } from '../../utils/imagePath.constant';
 import style from './Rang.module.css';
 
 function Rang({ text }) {
