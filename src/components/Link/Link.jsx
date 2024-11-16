@@ -1,8 +1,12 @@
-import './Link.css';
+import style from './Link.module.css';
 
-function Link({ text, children, className }) {
+function Link({ text, children, isActive, onClick }) {
+  const newSyle = isActive
+    ? style['link'] + ' ' + style['active']
+    : style['link'];
+
   return (
-    <a className={`link ${className ? className : ''}`} href="#">
+    <a className={newSyle} href="#" onClick={onClick}>
       {text}
       {children}
     </a>

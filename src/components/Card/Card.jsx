@@ -1,20 +1,25 @@
-import './Card.css';
+import style from './Card.module.css';
 import Link from '../Link/Link';
 import Rang from '../Rang/Rang';
-import Button from '../button/button';
+import CardButton from '../CardButton/CardButton';
+import { imagePaths } from '../../utils/imagePath.constant';
 
 function Card({ imgPath, name, rang }) {
   return (
-    <div className="card">
+    <div className={style['card']}>
       <Rang text={rang}></Rang>
-      <div className="card-img-wrapper">
-        <img className="card-img" src={imgPath} alt="Постер Фильма"></img>
+      <div className={style['card-img-wrapper']}>
+        <img
+          className={style['card-img']}
+          src={imgPath}
+          alt="Постер Фильма"
+        ></img>
       </div>
-      <div className="card-footer">
-        <Link className="card-link" text={name} isActive={true}></Link>
-        <Button className={'card-button'} text={'В избранное'}>
-          <img src="/src/public/like.svg"></img>
-        </Button>
+      <div className={style['card-footer']}>
+        <Link className={style['card-link']} text={name} isActive={true}></Link>
+        <CardButton text={'В избранное'}>
+          <img src={imagePaths.like}></img>
+        </CardButton>
       </div>
     </div>
   );

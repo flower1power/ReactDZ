@@ -1,10 +1,10 @@
-import './SearchSection.css';
+import style from './SearchSection.module.css';
 import SectionTitle from '../SectionTitle/SectionTitle';
 import SearchForm from '../SearchForm/SearchForm';
 
 function SearchSection() {
   return (
-    <section className="search-section">
+    <section className={style['search-section']}>
       <SectionTitle
         title={'Поиск'}
         text={

@@ -1,4 +1,4 @@
-import './CardList.css';
+import style from './CardList.module.css';
 import Card from '../Card/Card';
 
 function CardList({ items }) {
@@ -7,7 +7,7 @@ function CardList({ items }) {
   }
 
   return (
-    <div className="card-list">
+    <div className={style['card-list']}>
       {items.map((el) => (
         <Card
           key={el.id}
