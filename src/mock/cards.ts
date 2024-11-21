@@ -1,4 +1,4 @@
-import { TCards } from "./cards.type";
+import { TCards } from './cards.type';
 
 export const cards: TCards = [
   {

@@ -1,5 +1,5 @@
-import { TCards } from "../../mock/cards.type";
+import { TCards } from '../../mock/cards.type';
 
 export interface ICardListProps {
-  items: TCards
+  items: TCards;
 }

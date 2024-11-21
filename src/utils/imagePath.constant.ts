@@ -1,4 +1,4 @@
-export const imagePaths = {
+export const imagePaths: { [key: string]: string } = {
   like: '/public/like.svg',
   logo: '/public/logo.svg',
   outh: '/public/out.svg',

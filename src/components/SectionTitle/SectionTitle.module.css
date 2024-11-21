@@ -1,17 +1,17 @@
-.section-title{
+.section-title {
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
 
 @media (max-width: 985px) {
-  .section-title{
+  .section-title {
     min-width: 355px;
   }
 }
 
 @media (max-width: 392px) {
-  .section-title{
+  .section-title {
     min-width: fit-content;
   }
 }
