@@ -1,18 +1,16 @@
-p{
+p {
   font-family: Poppins, sans-serif;
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
-  line-height: 24px; 
+  line-height: 24px;
   color: #8e95a9;
   margin: 0;
-  text-wrap:pretty;
+  text-wrap: pretty;
 }
 
-
-
-.p-card{
-  color: #EBEEF5;
+.p-card {
+  color: #ebeef5;
   padding: 0;
   font-family: Poppins, sans-serif;
   font-size: 16px;
@@ -23,7 +21,7 @@ p{
 }
 
 @media (max-width: 1045px) {
-  p{
+  p {
     font-size: 14px;
   }
 }

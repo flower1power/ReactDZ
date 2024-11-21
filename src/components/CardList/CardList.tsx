@@ -1,8 +1,9 @@
 import style from './CardList.module.css';
 import Card from '../Card/Card';
+import { ICardListProps } from './CardList.props';
 
-function CardList({ items }) {
-  if (items.lenght === 0) {
+function CardList({ items }: ICardListProps) {
+  if (items.length === 0) {
     return null;
   }
 

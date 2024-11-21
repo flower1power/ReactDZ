@@ -1,10 +1,10 @@
-.card{
+.card {
   display: flex;
   flex-direction: column;
   padding: 8px 8px 16px 8px;
-  gap:16px;
+  gap: 16px;
   border-radius: 12px;
-  background: rgba(32, 40, 62, 0.80);
+  background: rgba(32, 40, 62, 0.8);
   backdrop-filter: blur(40px);
 }
 
@@ -12,8 +12,7 @@
   overflow: hidden;
 }
 
-
-.card-img{
+.card-img {
   display: flex;
   width: 100%;
   height: 100%;
@@ -21,12 +20,12 @@
   position: relative;
 }
 
-.rang{
+.rang {
   margin-top: 8px;
   margin-left: 8px;
 }
 
-.card-footer{
+.card-footer {
   display: flex;
   padding: 8px;
   flex-direction: column;
@@ -34,11 +33,8 @@
   gap: 16px;
 }
 
-
 @media (max-width: 1085px) {
   .card {
     width: 80%;
   }
 }
-
-

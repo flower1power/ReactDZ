@@ -1,10 +1,10 @@
-.link{
-  color: #A8AEBF;
+.link {
+  color: #a8aebf;
   text-decoration: none;
   transition: color 0.25s;
   padding: 12px 16px;
   display: flex;
-  gap:8px;
+  gap: 8px;
   align-items: center;
   font-size: 16px;
   font-weight: 600px;
@@ -12,12 +12,11 @@
   letter-spacing: 0.32px;
 }
 
-
-.link:hover{
+.link:hover {
   color: #fff;
 }
 
-.active{
+.active {
   color: #fff;
 }
 

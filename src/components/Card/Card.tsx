@@ -1,10 +1,11 @@
 import style from './Card.module.css';
 import Link from '../Link/Link';
 import Rang from '../Rang/Rang';
-import CardButton from '../CardButton/CardButton';
 import { imagePaths } from '../../utils/imagePath.constant';
+import { ICardProps } from './Card.props';
+import CardButton from '../CardButton/CardButton';
 
-function Card({ imgPath, name, rang }) {
+function Card({ imgPath, name, rang }: ICardProps) {
   return (
     <div className={style['card']}>
       <Rang text={rang}></Rang>
