@@ -1,4 +1,6 @@
-export const cards = [
+import { TCards } from "./cards.type";
+
+export const cards: TCards = [
   {
     id: 1,
     imgPath: '/public/BlackWindow.svg',

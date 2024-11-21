@@ -1,7 +1,7 @@
 import { useContext } from 'react';
+import { UserContext } from '../context/users.context';
 import Header from '../components/Header/Header';
 import LoginSection from '../components/LoginSection/LoginSection';
-import { UserContext } from '../context/users.context';
 
 function LoginPage() {
   const { loginUser } = useContext(UserContext);

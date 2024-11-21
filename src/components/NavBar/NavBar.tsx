@@ -1,6 +1,7 @@
 import style from './NavBar.module.css';
+import { INavBarProps } from './NavBar.props';
 
-function NavBar({ children }) {
+function NavBar({ children }: INavBarProps) {
   return <nav className={style['nav']}>{children}</nav>;
 }
 

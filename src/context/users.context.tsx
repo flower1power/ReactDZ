@@ -1,16 +1,22 @@
-import { createContext } from 'react';
+import { createContext, FC, MouseEvent } from 'react';
 import { useLocalStorage } from '../hooks/useLocalStorage.hook';
+import { IUser, IUserContext } from './type';
+import { IUserContextProviderProps } from './users.context.props';
 
-export const UserContext = createContext({
+const defaultUserContext: IUserContext = {
   users: [],
   loginUser: () => {},
   logoutUser: () => {},
-});
+};
 
-export const UserContextProvider = ({ children }) => {
-  const [users, setUsers] = useLocalStorage('users', []);
+export const UserContext = createContext<IUserContext>(defaultUserContext);
 
-  const loginUser = (newUser) => {
+export const UserContextProvider: FC<IUserContextProviderProps> = ({
+  children,
+}) => {
+  const [users, setUsers] = useLocalStorage<IUser[]>('users', []);
+
+  const loginUser = (newUser: IUser) => {
     setUsers((data) => {
       const updatedUsers = data.map((user) =>
         user.name === newUser.name
@@ -24,7 +30,8 @@ export const UserContextProvider = ({ children }) => {
     });
   };
 
-  const logoutUser = () => {
+  const logoutUser = (e: MouseEvent) => {
+    e.preventDefault();
     setUsers((data) => data.map((user) => ({ ...user, isLogined: false })));
   };
 

@@ -2,8 +2,9 @@ import { forwardRef } from 'react';
 import { imagePaths } from '../../utils/imagePath.constant';
 import style from './Input.module.css';
 import cn from 'classnames';
+import { IInputProps } from './Input.props';
 
-const Input = forwardRef(function Input(
+const Input = forwardRef<HTMLInputElement, IInputProps>(function Input(
   { isSearch, placeholder, onChange, value, ...props },
   ref,
 ) {

@@ -1,18 +1,20 @@
 import style from './LoginForm.module.css';
 import Input from '../Input/Input';
-import Button from '../button/button';
-import { useState } from 'react';
+import { ChangeEvent, MouseEvent, useState } from 'react';
+import Button from '../Button/Button';
+import { ILoginFormProps } from './LoginForm.props';
 
-function LoginForm({ loginUser }) {
+function LoginForm({ loginUser }: ILoginFormProps) {
   const [value, setValue] = useState('');
 
-  const onClick = (e) => {
+  const onClick = (e: MouseEvent) => {
     e.preventDefault();
 
     loginUser({ name: value, isLogined: true });
+    setValue('');
   };
 
-  const handleInputChange = (e) => {
+  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     setValue(e.target.value);
   };
 

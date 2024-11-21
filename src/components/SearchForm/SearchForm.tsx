@@ -1,9 +1,10 @@
-import style from './SearchForm.module.css';
+import Button from '../Button/Button';
 import Input from '../Input/Input';
-import Button from '../button/button';
+import style from './SearchForm.module.css';
+import { MouseEvent } from 'react';
 
 function SearchForm() {
-  const onClick = (e) => {
+  const onClick = (e: MouseEvent) => {
     e.preventDefault();
   };
 
