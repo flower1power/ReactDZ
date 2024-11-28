@@ -1,13 +1,15 @@
 .nav {
   display: flex;
   gap: 16px;
-  color: #fff;
+  color: var(--text-white-color);
   font-family: 'Poppins', sans-serif;
   font-size: 16px;
   font-style: normal;
   font-weight: 600;
   line-height: 24px;
   letter-spacing: 0.32px;
+  align-items: center;
+  justify-content: center;
 }
 
 @media (max-width: 985px) {

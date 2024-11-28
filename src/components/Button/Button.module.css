@@ -1,14 +1,14 @@
 .button {
   width: auto;
   max-width: 200px;
-  border: 2px solid #7b6ef6;
+  border: 2px solid var(--primary-color);
   border-radius: 12px;
   padding: 16px 32px;
   cursor: pointer;
-  background: #7b6ef6;
+  background: var(--primary-color);
   transition: background border 0.25s;
 
-  color: #fff;
+  color: var(--text-white-color);
   text-align: center;
   font-family: Poppins, sans-serif;
   font-style: normal;
@@ -18,8 +18,8 @@
 }
 
 .button:hover {
-  border: 2px solid #5f4ff3;
-  background: #5f4ff3;
+  border: 2px solid var(--primary-hover-color);
+  background: var(--primary-hover-color);
 }
 
 @media (max-width: 985px) {

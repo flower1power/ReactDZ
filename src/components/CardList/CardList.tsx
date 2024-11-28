@@ -11,7 +11,7 @@ function CardList({ items }: ICardListProps) {
     <div className={style['card-list']}>
       {items.map((el) => (
         <Card
-          key={el.id}
+          id={el.id}
           imgPath={el.imgPath}
           name={el.name}
           rang={el.rang}

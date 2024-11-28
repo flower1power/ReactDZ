@@ -1,10 +1,7 @@
 .rang {
   display: flex;
   align-items: center;
-  position: absolute;
   z-index: 1;
-  left: 16px;
-  top: 16px;
 
   padding: 4px 8px;
   align-items: center;

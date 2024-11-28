@@ -6,6 +6,11 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  --text-white-color: #fff;
+  --text-link-color: #a8aebf;
+  --primary-color: #7b6ef6;
+  --primary-hover-color: #5f4ff3;
 }
 
 body {

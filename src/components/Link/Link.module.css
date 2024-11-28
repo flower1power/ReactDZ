@@ -1,8 +1,7 @@
 .link {
-  color: #a8aebf;
+  color: var(--text-link-color);
   text-decoration: none;
   transition: color 0.25s;
-  padding: 12px 16px;
   display: flex;
   gap: 8px;
   align-items: center;
@@ -13,11 +12,11 @@
 }
 
 .link:hover {
-  color: #fff;
+  color: var(--text-white-color);
 }
 
 .active {
-  color: #fff;
+  color: var(--text-white-color);
 }
 
 @media (max-width: 985px) {

@@ -7,7 +7,7 @@
 
   gap: 8px;
 
-  color: #7b6ef6;
+  color: var(--primary-color);
   font-size: 16px;
   font-weight: 600px;
   font-style: normal;
@@ -17,5 +17,5 @@
 }
 
 .card-button:hover {
-  color: #5f4ff3;
+  color: var(--primary-hover-color);
 }

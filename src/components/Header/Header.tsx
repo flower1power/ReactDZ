@@ -1,9 +1,10 @@
 import style from './Header.module.css';
-import Link from '../Link/Link';
 import { imagePaths } from '../../utils/imagePath.constant';
 import NavBar from '../NavBar/NavBar';
 import { useContext } from 'react';
 import { UserContext } from '../../context/users.context';
+import { NavLink } from 'react-router';
+import cn from 'classnames';
 
 function Header() {
   const { users, logoutUser } = useContext(UserContext);
@@ -11,31 +12,67 @@ function Header() {
 
   const link =
     loggedInUser && loggedInUser.name ? (
-      <Link text={'Выйти'} onClick={logoutUser}></Link>
+      <NavLink to={'/'} onClick={logoutUser} className={cn(style['nav-link'])}>
+        Выйти
+      </NavLink>
     ) : (
-      <Link text={'Войти'}>
+      <NavLink
+        to={'/login'}
+        className={({ isActive }) => {
+          return cn(style['nav-link'], {
+            [style['active']]: isActive,
+          });
+        }}
+      >
+        Войти
         <img
           src={imagePaths.outh}
           alt="логотип выхода"
-          className={style['img']}
+          className={cn(style['img'])}
         ></img>
-      </Link>
+      </NavLink>
     );
 
   return (
     <div className={style['header']}>
       <img src={imagePaths.logo} alt="logo" className={style['logo']}></img>
       <NavBar>
-        <Link isActive={true} text={'Поиск фильмов'}></Link>
-        <Link text={'Мои фильмы'}></Link>
+        <NavLink
+          to={'/'}
+          className={({ isActive }) => {
+            return cn(style['nav-link'], {
+              [style['active']]: isActive,
+            });
+          }}
+        >
+          Поиск фильмов
+        </NavLink>
+        <NavLink
+          to={'/favorites'}
+          className={({ isActive }) => {
+            return cn(style['nav-link'], {
+              [style['active']]: isActive,
+            });
+          }}
+        >
+          Мои фильмы
+        </NavLink>
         {loggedInUser && loggedInUser.name ? (
-          <Link text={loggedInUser.name}>
+          <NavLink
+            to={'/profile'}
+            className={({ isActive }) => {
+              return cn(style['nav-link'], {
+                [style['active']]: isActive,
+              });
+            }}
+          >
+            {loggedInUser.name}
             <img
               src={imagePaths.user}
               alt="логотип человека"
               className={style['img']}
             ></img>
-          </Link>
+          </NavLink>
         ) : null}
         {link}
       </NavBar>
@@ -44,3 +81,9 @@ function Header() {
 }
 
 export default Header;
+
+// className={({ isActive }) =>
+//   cn(style['link'], {
+//     [style.active]: isActive,
+//   })
+// }
