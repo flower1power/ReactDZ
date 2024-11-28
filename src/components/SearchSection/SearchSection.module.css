@@ -1,4 +1,4 @@
-.search-section{
+.search-section {
   display: flex;
   flex-direction: column;
   gap: 24px;
@@ -7,6 +7,6 @@
 
 @media (max-width: 436px) {
   .search-section {
-    width: 100%
+    width: 100%;
   }
 }

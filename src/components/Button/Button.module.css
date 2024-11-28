@@ -1,44 +1,43 @@
-.button{
+.button {
   width: auto;
   max-width: 200px;
-  border: 2px solid #7b6ef6;
+  border: 2px solid var(--primary-color);
   border-radius: 12px;
   padding: 16px 32px;
   cursor: pointer;
-  background: #7b6ef6;
+  background: var(--primary-color);
   transition: background border 0.25s;
 
-  color: #fff;
+  color: var(--text-white-color);
   text-align: center;
   font-family: Poppins, sans-serif;
   font-style: normal;
   font-size: 16px;
   font-weight: 400px;
-  line-height: 24px; 
+  line-height: 24px;
 }
 
-.button:hover{
-  border: 2px solid #5f4ff3;
-  background: #5f4ff3;
+.button:hover {
+  border: 2px solid var(--primary-hover-color);
+  background: var(--primary-hover-color);
 }
-
 
 @media (max-width: 985px) {
-  .button{
+  .button {
     padding: 14px 30px;
     font-size: 14px;
   }
 }
 
 @media (max-width: 435px) {
-  .button{
+  .button {
     padding: 12px 28px;
     font-size: 12px;
   }
 }
 
 @media (max-width: 385px) {
-  .button{
+  .button {
     padding: 10px 26px;
     font-size: 10px;
   }
