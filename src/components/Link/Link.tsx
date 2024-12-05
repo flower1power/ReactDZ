@@ -1,13 +1,9 @@
 import style from './Link.module.css';
 import { ILinkProps } from './Link.propos';
 
-function Link({ text, children, isActive, onClick }: ILinkProps) {
-  const newSyle = isActive
-    ? style['link'] + ' ' + style['active']
-    : style['link'];
-
+function Link({ text, children, onClick }: ILinkProps) {
   return (
-    <a className={newSyle} href="#" onClick={onClick}>
+    <a className={style['link']} href="#" onClick={onClick}>
       {text}
       {children}
     </a>

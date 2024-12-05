@@ -7,7 +7,7 @@ function Rang({ text, className }: IRangProps) {
   return (
     <div className={cn(style['rang'], className)}>
       <img src={imagePaths.star} alt="Звезда"></img>
-      {text}
+      {text || 0}
     </div>
   );
 }
