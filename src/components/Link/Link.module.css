@@ -11,6 +11,10 @@
   letter-spacing: 0.32px;
 }
 
+a {
+  text-decoration: none;
+}
+
 .link:hover {
   color: var(--text-white-color);
 }

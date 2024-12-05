@@ -3,16 +3,26 @@ import { imagePaths } from '../../utils/imagePath.constant';
 import NavBar from '../NavBar/NavBar';
 import { useContext } from 'react';
 import { UserContext } from '../../context/users.context';
-import { NavLink } from 'react-router';
+import { NavLink, useNavigate } from 'react-router';
 import cn from 'classnames';
 
 function Header() {
   const { users, logoutUser } = useContext(UserContext);
   const loggedInUser = users.find((user) => user.isLogined);
+  const navigate = useNavigate();
+
+  const handelInUser = (e: React.MouseEvent) => {
+    logoutUser(e);
+    navigate('/login');
+  };
 
   const link =
     loggedInUser && loggedInUser.name ? (
-      <NavLink to={'/'} onClick={logoutUser} className={cn(style['nav-link'])}>
+      <NavLink
+        to={'/'}
+        onClick={handelInUser}
+        className={cn(style['nav-link'])}
+      >
         Выйти
       </NavLink>
     ) : (
@@ -81,9 +91,3 @@ function Header() {
 }
 
 export default Header;
-
-// className={({ isActive }) =>
-//   cn(style['link'], {
-//     [style.active]: isActive,
-//   })
-// }

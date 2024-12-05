@@ -1,5 +1,5 @@
-import { TCards } from '../../mock/cards.type';
+import { ISearchDescription } from "../../inteface/search.interfase";
 
 export interface ICardListProps {
-  items: TCards;
+  items: ISearchDescription[];
 }

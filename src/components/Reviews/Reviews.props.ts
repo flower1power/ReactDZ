@@ -1,5 +1,3 @@
-export interface IReviewsProps {
-  name: string;
-  date: string;
-  text: string;
-}
+import { IReview } from '../../inteface/details.intefase';
+
+export interface IReviewsProps extends IReview {}

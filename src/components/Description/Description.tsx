@@ -5,7 +5,9 @@ export function Description({ title, description }: IDescriptionProps) {
   return (
     <div className={style['wrapper']}>
       <div className={style['title']}>{title}</div>
-      <div className={style['description']}>{description}</div>
+      <div className={style['description']}>
+        {description ? description : 'Нет данных'}
+      </div>
     </div>
   );
 }

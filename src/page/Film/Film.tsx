@@ -1,69 +1,110 @@
-import { useParams } from 'react-router';
 import style from './Film.module.css';
-import { cards, description } from '../../mock/cards';
 import Rang from '../../components/Rang/Rang';
 import CardButton from '../../components/CardButton/CardButton';
 import { imagePaths } from '../../utils/imagePath.constant';
 import { Description } from '../../components/Description/Description';
 import { Reviews } from '../../components/Reviews/Reviews';
+import { useParams } from 'react-router';
+import { decode } from 'he';
+import { useEffect, useState } from 'react';
+import { PREFIX } from '../../utils/api.constats';
+import { IDetails, IDetailsShort } from '../../inteface/details.intefase';
+import Title from '../../components/Title/Title';
+import axios, { AxiosError } from 'axios';
+import { parseDuration } from './parseDuration';
 
 export function Film() {
-  const { id } = useParams();
+  const { tt } = useParams();
+  const [data, setData] = useState<IDetailsShort | null>(null);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [error, setError] = useState<string | null>(null);
 
-  const film = cards.filter((el) => {
-    return el.id === Number(id);
-  })[0];
+  useEffect(() => {
+    const fetchFilmData = async () => {
+      try {
+        setLoading(true);
+        const response = await axios.get<IDetails>(`${PREFIX}/?tt=${tt}`);
+
+        setData(response.data.short);
+      } catch (err) {
+        console.error('Ошибка:', err);
+
+        if (err instanceof AxiosError) {
+          setError(`Ошибка: ${err.message}`);
+        }
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchFilmData();
+  }, [tt]);
+
+  console.log(data);
 
   return (
-    <div className={style['wrapper']}>
-      <div className={style['title-wrapper']}>
-        <div className={style['title']}>Поиск фильмов</div>
-        <div className={style['film-name']}>{film.name}</div>
-      </div>
-      <div className={style['body-wrapper']}>
-        <img
-          className={style['film-img']}
-          src={film.imgPath}
-          alt="Постер фильма"
-        />
+    <>
+      {loading && <Title title={'Загрузка...'} />}
+      {!loading && error && <Title title={`Ошибка: ${error}`} />}
+      {!loading && !data && !error && (
+        <Title title="Нет данных для отображения" />
+      )}
+      {!loading && data && (
+        <div className={style['wrapper']}>
+          <div className={style['title-wrapper']}>
+            <div className={style['title']}>Поиск фильмов</div>
+            <div className={style['film-name']}>{data.name}</div>
+          </div>
+          <div className={style['body-wrapper']}>
+            <img
+              className={style['film-img']}
+              src={data.image}
+              alt="Постер фильма"
+            />
 
-        <div className={style['film-descriptions']}>
-          <div className={style['description']}>
-            After the devastating events of Avengers: Infinity War, the universe
-            is in ruins due to the efforts of the Mad Titan, Thanos. With the
-            help of remaining allies, the Avengers must assemble once more in
-            order to undo Thanos' actions and restore order to the universe once
-            and for all, no matter what consequences may be in store.
+            <div className={style['film-descriptions']}>
+              <div className={style['description']}>{data.description}</div>
+              <div className={style['rang-and-addFavorites']}>
+                <Rang
+                  className={style['rang']}
+                  text={
+                    data.aggregateRating && data.aggregateRating.ratingValue
+                  }
+                ></Rang>
+                <CardButton text={'В избранное'}>
+                  <img src={imagePaths.like}></img>
+                </CardButton>
+              </div>
+              <Description
+                title={'Тип'}
+                description={data['@type']}
+              ></Description>
+              <Description
+                title={'Дата выхода'}
+                description={data.datePublished}
+              ></Description>
+              <Description
+                title={'Длительность'}
+                description={
+                  parseDuration(data.duration) &&
+                  `${parseDuration(data.duration)} мин`
+                }
+              ></Description>
+              <Description
+                title={'Жанр'}
+                description={data.genre.join(', ')}
+              ></Description>
+            </div>
           </div>
-          <div className={style['rang-and-addFavorites']}>
-            <Rang className={style['rang']} text={film.rang}></Rang>
-            <CardButton text={'В избранное'}>
-              <img src={imagePaths.like}></img>
-            </CardButton>
-          </div>
-          <Description
-            title={description.type.title}
-            description={description.type.description}
-          ></Description>
-          <Description
-            title={description.date.title}
-            description={description.date.description}
-          ></Description>
-          <Description
-            title={description.duration.title}
-            description={description.duration.description}
-          ></Description>
-          <Description
-            title={description.genre.title}
-            description={description.genre.description}
-          ></Description>
+          <Reviews
+            name={data.review && decode(data.review.name)}
+            dateCreated={data.review && data.review.dateCreated}
+            reviewBody={data.review && decode(data.review.reviewBody)}
+          ></Reviews>
         </div>
-      </div>
-      <Reviews
-        name={description.reviews.title}
-        date={description.reviews.date}
-        text={description.reviews.description}
-      ></Reviews>
-    </div>
+      )}
+    </>
   );
 }
+
+export default Film;
