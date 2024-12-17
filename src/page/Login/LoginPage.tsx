@@ -1,6 +1,5 @@
 import { useContext } from 'react';
 import LoginSection from '../../components/LoginSection/LoginSection';
-// import Header from '../../components/Header/Header';
 import { UserContext } from '../../context/users.context';
 
 function LoginPage() {
@@ -8,7 +7,6 @@ function LoginPage() {
 
   return (
     <>
-      {/* <Header></Header> */}
       <LoginSection loginUser={loginUser}></LoginSection>
     </>
   );

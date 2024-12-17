@@ -39,18 +39,39 @@ export const cards: TCards = [
   },
 ];
 
-export const favorites: TCards = [
+export interface ISearchDescription {
+  '#TITLE': string;
+  '#YEAR'?: number;
+  '#IMDB_ID': string;
+  '#RANK': number;
+  '#ACTORS': string;
+  '#AKA': string;
+  '#IMDB_URL': string;
+  '#IMDB_IV': string;
+  '#IMG_POSTER'?: string;
+  photo_width?: number;
+  photo_height?: number;
+}
+export const favorites: ISearchDescription[] = [
   {
-    id: 1,
-    imgPath: '/public/BlackWindow.svg',
-    name: 'Black Widow',
-    rang: 324,
+    '#IMDB_ID': '1',
+    '#TITLE': 'Black Widow',
+    '#RANK': 324,
+    '#IMG_POSTER': '/public/BlackWindow.svg',
+    '#ACTORS': '',
+    '#AKA': '',
+    '#IMDB_URL': '',
+    '#IMDB_IV': '',
   },
   {
-    id: 2,
-    imgPath: '/public/BlackWindow.svg',
-    name: 'Black Widow',
-    rang: 324,
+    '#IMDB_ID': '1',
+    '#TITLE': 'Black Widow',
+    '#RANK': 324,
+    '#IMG_POSTER': '/public/BlackWindow.svg',
+    '#ACTORS': '',
+    '#AKA': '',
+    '#IMDB_URL': '',
+    '#IMDB_IV': '',
   },
 ];
 

@@ -1,6 +1,13 @@
 export interface ICardProps {
-  id: number;
-  imgPath: string;
-  name: string;
-  rang: number;
+  title: string;
+  year?: number;
+  imdbId: string;
+  rank: number;
+  actors?: string;
+  aka?: string;
+  imdbUrl?: string;
+  imdbIv?: string;
+  imgPoster?: string;
+  photoWidth?: number;
+  photoHeight?: number;
 }

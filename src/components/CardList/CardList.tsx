@@ -8,16 +8,21 @@ function CardList({ items }: ICardListProps) {
   }
 
   return (
-    <div className={style['card-list']}>
-      {items.map((el) => (
-        <Card
-          id={el.id}
-          imgPath={el.imgPath}
-          name={el.name}
-          rang={el.rang}
-        ></Card>
-      ))}
-    </div>
+    <>
+      <div className={style['card-list']}>
+        {items.map((el) => (
+          <Card
+            key={Number(el['#IMDB_ID'].slice(2))}
+            imdbId={el['#IMDB_ID']}
+            imgPoster={
+              el['#IMG_POSTER'] ? el['#IMG_POSTER'] : '/public/User.svg'
+            }
+            title={el['#TITLE']}
+            rank={Number(el['#RANK'])}
+          ></Card>
+        ))}
+      </div>
+    </>
   );
 }
 
