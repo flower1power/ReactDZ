@@ -7,6 +7,8 @@ import { Layout } from './Layout/Layout.tsx';
 import LoginPage from './page/Login/LoginPage.tsx';
 import { ErrorPage } from './page/ErrorPage/ErrorPage.tsx';
 import { RequireAuth } from './utils/RequireAuth.tsx';
+import { store } from './store/store.ts';
+import { Provider } from 'react-redux';
 
 const Film = lazy(() => import('./page/Film/Film'));
 const App = lazy(() => import('./App.tsx'));
@@ -68,9 +70,11 @@ const rootElement = document.getElementById('root');
 if (rootElement) {
   createRoot(rootElement).render(
     <StrictMode>
-      <UserContextProvider>
-        <RouterProvider router={route}></RouterProvider>
-      </UserContextProvider>
+      <Provider store={store}>
+        <UserContextProvider>
+          <RouterProvider router={route}></RouterProvider>
+        </UserContextProvider>
+      </Provider>
     </StrictMode>,
   );
 } else {

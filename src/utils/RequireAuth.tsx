@@ -1,19 +1,14 @@
-import { ReactNode } from 'react';
+import { ReactNode, useContext } from 'react';
 import { Navigate } from 'react-router';
+import { UserContext } from '../context/users.context';
 
 export const RequireAuth = ({ children }: { children: ReactNode }) => {
-  const jwt = localStorage.getItem('users');
+  const { users } = useContext(UserContext);
 
-  if (!jwt) {
+  const loggedInUser = users.some((user) => user.isLogined);
+
+  if (!loggedInUser) {
     return <Navigate to="/login" replace />;
-  } else {
-    const filter: { name: string; isLogined: boolean }[] = JSON.parse(jwt).filter(
-      (user: { name: string; isLogined: boolean }) => user.isLogined,
-    );
-
-    if (filter.length === 0) {
-      return <Navigate to="/login" replace />;
-    }
   }
 
   return <>{children}</>;
