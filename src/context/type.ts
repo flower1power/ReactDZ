@@ -1,4 +1,3 @@
-import { MouseEvent } from 'react';
 import { ISearchDescription } from '../inteface/search.interfase';
 
 export interface IUser {
