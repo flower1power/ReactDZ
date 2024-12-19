@@ -1,7 +1,6 @@
-import { ButtonHTMLAttributes, ReactNode } from 'react';
+import { ButtonHTMLAttributes } from 'react';
 
 export interface ICardButtonProps
   extends ButtonHTMLAttributes<HTMLButtonElement> {
-  children: ReactNode;
-  text: string;
+  isFavorite: boolean;
 }

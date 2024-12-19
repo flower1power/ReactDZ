@@ -1,23 +1,29 @@
 import style from './Film.module.css';
 import Rang from '../../components/Rang/Rang';
 import CardButton from '../../components/CardButton/CardButton';
-import { imagePaths } from '../../utils/imagePath.constant';
 import { Description } from '../../components/Description/Description';
 import { Reviews } from '../../components/Reviews/Reviews';
 import { useParams } from 'react-router';
 import { decode } from 'he';
-import { useEffect, useState } from 'react';
+import { MouseEvent, useCallback, useEffect, useMemo, useState } from 'react';
 import { PREFIX } from '../../utils/api.constats';
 import { IDetails, IDetailsShort } from '../../inteface/details.intefase';
 import Title from '../../components/Title/Title';
 import axios, { AxiosError } from 'axios';
 import { parseDuration } from './parseDuration';
+import { useDispatch, useSelector } from 'react-redux';
+import { TAppDispathe, TRootState } from '../../store/store';
+import { addToFavorites, removeFromFavorites } from '../../store/user.slice';
 
 export function Film() {
   const { tt } = useParams();
   const [data, setData] = useState<IDetailsShort | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
+  const dispatch = useDispatch<TAppDispathe>();
+  const loggedInUser = useSelector((state: TRootState) =>
+    state.users.users.find((user) => user.isLogined),
+  );
 
   useEffect(() => {
     const fetchFilmData = async () => {
@@ -40,7 +46,55 @@ export function Film() {
     fetchFilmData();
   }, [tt]);
 
-  console.log(data);
+  const isFavorite = loggedInUser?.items?.some(
+    (item) => item['#IMDB_ID'] === tt,
+  );
+
+  const [favoriteState, setFavoriteState] = useState(!!isFavorite);
+
+  useEffect(() => {
+    setFavoriteState(!!isFavorite); // Синхронизируем локальное состояние с Redux
+  }, [isFavorite]);
+
+  const handleFavoriteToggle = useCallback(
+    (e: MouseEvent) => {
+      e.preventDefault();
+      if (!loggedInUser || !data || !tt) return;
+
+      setFavoriteState((prev) => !prev);
+
+      if (isFavorite) {
+        dispatch(
+          removeFromFavorites({
+            userName: loggedInUser.name,
+            imdbId: tt,
+          }),
+        );
+      } else {
+        dispatch(
+          addToFavorites({
+            userName: loggedInUser.name,
+            movie: {
+              '#TITLE': data.name,
+              '#YEAR': Number(data.datePublished),
+              '#IMDB_ID': data.imdbId,
+              '#RANK': Number(data.aggregateRating),
+              '#ACTORS': data.actor.join(' '),
+              '#IMDB_URL': data.url,
+              '#IMG_POSTER': data.image,
+            },
+          }),
+        );
+      }
+    },
+    [loggedInUser, data, isFavorite, dispatch],
+  );
+
+  const formattedDuration = useMemo(() => {
+    if (!data?.duration) return null;
+    const parsed = parseDuration(data.duration);
+    return parsed ? `${parsed} мин` : null;
+  }, [data?.duration]);
 
   return (
     <>
@@ -71,9 +125,10 @@ export function Film() {
                     data.aggregateRating && data.aggregateRating.ratingValue
                   }
                 ></Rang>
-                <CardButton text={'В избранное'}>
-                  <img src={imagePaths.like}></img>
-                </CardButton>
+                <CardButton
+                  isFavorite={favoriteState}
+                  onClick={handleFavoriteToggle}
+                ></CardButton>
               </div>
               <Description
                 title={'Тип'}
@@ -85,10 +140,7 @@ export function Film() {
               ></Description>
               <Description
                 title={'Длительность'}
-                description={
-                  parseDuration(data.duration) &&
-                  `${parseDuration(data.duration)} мин`
-                }
+                description={formattedDuration}
               ></Description>
               <Description
                 title={'Жанр'}

@@ -2,17 +2,23 @@ import style from './LoginForm.module.css';
 import Input from '../Input/Input';
 import { ChangeEvent, MouseEvent, useState } from 'react';
 import Button from '../Button/Button';
-import { ILoginFormProps } from './LoginForm.props';
 import { useNavigate } from 'react-router';
+import { useDispatch } from 'react-redux';
+import { TAppDispathe } from '../../store/store';
+import { loginUser } from '../../store/user.slice';
 
-function LoginForm({ loginUser }: ILoginFormProps) {
+function LoginForm() {
   const [value, setValue] = useState('');
   const navigate = useNavigate();
+  const dispatch = useDispatch<TAppDispathe>();
 
   const onClick = (e: MouseEvent) => {
     e.preventDefault();
 
-    loginUser({ name: value, isLogined: true });
+
+    const newUser = { name: value, isLogined: true, items: [] };
+    dispatch(loginUser(newUser));
+
     setValue('');
     navigate('/');
   };

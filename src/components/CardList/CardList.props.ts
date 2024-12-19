@@ -1,5 +1,5 @@
-import { ISearchDescription } from "../../inteface/search.interfase";
+import { ISearchDescription } from '../../inteface/search.interfase';
 
 export interface ICardListProps {
-  items: ISearchDescription[];
+  items?: ISearchDescription[];
 }
