@@ -19,3 +19,11 @@
 .card-button:hover {
   color: var(--primary-hover-color);
 }
+
+.card-button_favorite {
+  color: #37d8a7;
+}
+
+.card-button_favorite:hover {
+  color: #1da37b;
+}

@@ -13,10 +13,16 @@ export interface IDetailsShort {
   datePublished: string;
   duration: string;
   aggregateRating: AggregateRating;
+  actor: IActor[];
+  imdbId: string;
+}
+
+export interface IActor {
+  url: string;
+  name: string;
 }
 
 export interface AggregateRating {
-  '@type': string;
   ratingCount: number;
   bestRating: number;
   worstRating: number;
